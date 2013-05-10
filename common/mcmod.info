@@ -1,0 +1,20 @@
+[
+{
+  "modid": "MM",
+  "name": "My Mod",
+  "description": "THIS IS MY MOD!!!!!",
+  "version": "in-dev",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "Levijatan"
+  ],
+  "credits": "MEEEE",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parents": "",
+  "dependencies": [
+  ]
+}
+]

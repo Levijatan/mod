@@ -1,15 +1,19 @@
 package mymod.client;
 
 import net.minecraftforge.client.MinecraftForgeClient;
-import mymod.MyProxy;
+import cpw.mods.fml.client.registry.ClientRegistry;
+import mymod.CommonProxy;
+import mymod.block.BlockContainer;
+import mymod.block.tileEntity.transport.liquid.DrainTileEntity;
+import mymod.renders.item.ItemDrainRender;
+import mymod.renders.tileEntity.DrainEntityRender;
 
-public class ClientProxy extends MyProxy {
+public class ClientProxy extends CommonProxy {
     
-    @SuppressWarnings("deprecation")
     @Override
     public void registerRenderers() {
-            MinecraftForgeClient.preloadTexture(ITEMS_PNG);
-            MinecraftForgeClient.preloadTexture(BLOCK_PNG);
+        ClientRegistry.bindTileEntitySpecialRenderer(DrainTileEntity.class, new DrainEntityRender() );
+        MinecraftForgeClient.registerItemRenderer(BlockContainer.drainBlock.blockID, new ItemDrainRender());
     }
 
 }

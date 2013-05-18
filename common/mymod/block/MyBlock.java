@@ -1,24 +1,22 @@
 package mymod.block;
 
-import mymod.MyProxy;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import mymod.lib.Reference;
 import net.minecraft.block.Block;
-import net.minecraft.block.StepSound;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.client.renderer.texture.IconRegister;
 
-public class MyBlock extends Block {
+public abstract class MyBlock extends Block {
+    
 
-    public MyBlock(int id, Material material, float hardness,
-            StepSound stepSound, String name, CreativeTabs tab) {
+    public MyBlock(int id, Material material) {
         super (id, material);
-        setHardness (hardness);
-        setStepSound (stepSound);
-        setUnlocalizedName (name);
-        setCreativeTab (tab);
     }
-
-    public String getTextureFile () {
-            return MyProxy.BLOCK_PNG;
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void registerIcons(IconRegister iconRegister){
+        blockIcon = iconRegister.registerIcon(this.getUnlocalizedName());
     }
-
 }

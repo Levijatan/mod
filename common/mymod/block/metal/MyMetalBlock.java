@@ -1,52 +1,36 @@
-package mymod.block.ore;
+package mymod.block.metal;
 
 import java.util.List;
 import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
-import mymod.block.MyBlock;
-import mymod.item.ItemContainer;
-import mymod.lib.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import mymod.block.MyBlock;
+import mymod.lib.Reference;
 
-public class MyOre extends MyBlock {
+public class MyMetalBlock extends MyBlock {
 
-    public MyOre(int id) {
-        super(id, Material.rock);
-        this.setStepSound(soundStoneFootstep);
+    public MyMetalBlock(int id) {
+        super(id, Material.iron);
         this.setHardness(3.0F);
         this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setStepSound(soundMetalFootstep);
+        this.setUnlocalizedName("myMetalBlock");
     }
     
     @SideOnly(Side.CLIENT)
     private Icon[] icons;
     
-    private String[] blockNames = {"CopperOre", "TinOre", "ZincOre"};
+    private String[] blockNames = {"BrassBlock", "BronzeBlock",  "CopperBlock", "TinBlock", "ZincBlock"};
     
     @Override
     public int idDropped(int par1, Random random, int par2) {
-        int itemId = 0;
-        switch(par1){
-            case 0:{
-                itemId = ItemContainer.copperChunk.itemID;
-                break;
-            }
-            case 1:{
-                itemId = ItemContainer.tinChunk.itemID;
-                break;
-            }
-            case 2:{
-                itemId = ItemContainer.zincChunk.itemID;
-                break;
-            }
-        }
-        return itemId;
+        return 0;
     }
     
     
@@ -64,6 +48,7 @@ public class MyOre extends MyBlock {
         return icons[par2];
     }
     
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(int par1, CreativeTabs creativeTabs, List par3List) {
         for(int i = 0; i < icons.length; i++) {

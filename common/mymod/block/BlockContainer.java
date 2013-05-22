@@ -29,6 +29,7 @@ import mymod.block.metal.stairs.StairsZinc;
 import mymod.block.ore.MyOre;
 import mymod.block.ore.ItemMyOre;
 import mymod.block.transport.liquid.DrainBlock;
+import mymod.block.transport.liquid.ItemDrainBlock;
 import mymod.lib.BlockIds;
 import mymod.lib.Reference;
 
@@ -68,7 +69,7 @@ public class BlockContainer {
     
     //Liquid Transport Drains
     public static Block drainBlock;
-    
+    public static Item itemDrainBlock;
     
     public static void init() {
         
@@ -184,9 +185,11 @@ public class BlockContainer {
         //Liquid Transport Drains
         drainBlock = new DrainBlock(BlockIds.TRANSPORT_LIQUID_DRAIN).setUnlocalizedName("drainBlock").setCreativeTab(CreativeTabs.tabBlock);
         
-        GameRegistry.registerBlock(drainBlock, "drainBlock");
+        GameRegistry.registerBlock(drainBlock, ItemDrainBlock.class, "drainBlock");
         
         LanguageRegistry.addName(drainBlock, "Drain");
+        
+        itemDrainBlock = new ItemDrainBlock(2002).setUnlocalizedName("itemDrainBlock");
         
         
         

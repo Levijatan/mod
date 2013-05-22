@@ -4,16 +4,16 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.FMLClientHandler;
 
-import mymod.renders.DrainModelOBJ;
+import mymod.renders.model.DrainStraight;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 
 public class ItemDrainRender implements IItemRenderer{
 
-    private DrainModelOBJ drainModel;
+    private DrainStraight drainModel;
     
     public ItemDrainRender() {
-        drainModel = new DrainModelOBJ();
+        drainModel = new DrainStraight();
     }
     
     @Override
@@ -32,17 +32,21 @@ public class ItemDrainRender implements IItemRenderer{
 
         switch(type){
             case ENTITY:{
-                renderDrain(0f, 0f, 0f, 2.0f);
+                renderDrain(0f, 0f, 0f, 1.0f);
                 return;
             }
             case EQUIPPED:{
-                renderDrain(0f, 1f, 1f, 2.0f);
+                renderDrain(0f, 1f, 1f, 1.0f);
                 return;
             }
             case INVENTORY:{
-                renderDrain(0f, -0.5f, 0f, 2.0f);
+                renderDrain(0f, -0.5f, 0f, 1.0f);
                 return;
             }
+            case FIRST_PERSON_MAP:
+                break;
+            default:
+                break;
         }
     }
     
@@ -55,7 +59,7 @@ public class ItemDrainRender implements IItemRenderer{
         GL11.glScalef(scale, scale, scale);
         GL11.glRotatef(180f, 0f, 1f, 0f);
         
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/MM/textures/blocks/drain.Brass.png");
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/MM/textures/blocks/drainUVmap.Brass.png");
         
         drainModel.render();
         

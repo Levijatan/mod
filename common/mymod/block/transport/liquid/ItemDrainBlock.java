@@ -15,46 +15,66 @@ public class ItemDrainBlock extends ItemBlock {
         String name = "";
         switch(itemStack.getItemDamage()){
             case 0:{
-                name = "straightNorthSouth";
+                name = "base";
                 break;
             }
             case 1:{
-                name = "straightEastWest";
+                name = "stopperNorth";
                 break;
             }
             case 2:{
-                name = "turnNorthEast";
+                name ="stopperWest";
                 break;
             }
             case 3:{
-                name = "turnNorthWest";
+                name ="stopperSouth";
                 break;
             }
             case 4:{
-                name = "turnSouthEast";
+                name ="stopperEast";
                 break;
             }
             case 5:{
-                name ="turnSouthWest";
+                name ="straightNorthSouth";
                 break;
             }
             case 6:{
-                name ="tNorthSouthWest";
+                name ="straightEastWest";
                 break;
             }
             case 7:{
-                name ="tNorthSouthEast";
+                name ="turnSouthWest";
                 break;
             }
             case 8:{
-                name ="tNorthWestEast";
+                name = "turnNorthWest";
                 break;
             }
             case 9:{
-                name ="tSouthWestEast";
+                name = "turnSouthEast";
                 break;
             }
             case 10:{
+                name = "turnNorthEast";
+                break;
+            }
+            case 11:{
+                name ="tNorthSouthWest";
+                break;
+            }
+            case 12:{
+                name ="tNorthSouthEast";
+                break;
+            }
+            case 13:{
+                name ="tNorthWestEast";
+                break;
+            }
+            case 14:{
+                name ="tSouthWestEast";
+                break;
+            }
+            case 15:{
                 name ="cross";
                 break;
             }

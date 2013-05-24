@@ -1,21 +1,21 @@
 package mymod.renders.model;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.FMLClientHandler;
-
 import mymod.block.tileEntity.transport.liquid.DrainTileEntity;
 import net.minecraft.client.model.ModelBase;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-public class DrainTurn extends ModelBase {
+import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.FMLClientHandler;
+
+public class DrainStop extends ModelBase {
     
     private IModelCustom modelDrain;
     
-    public DrainTurn() {
+    public DrainStop() {
         
-        modelDrain = AdvancedModelLoader.loadModel("/mods/MM/models/drain2WayTurn.obj");
+        modelDrain = AdvancedModelLoader.loadModel("/mods/MM/models/drain1Way.obj");
     }
     
     public void render() {
@@ -45,12 +45,12 @@ public class DrainTurn extends ModelBase {
                 break;
         }
         
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/MM/textures/blocks/drain2WayTurn.png");
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/MM/textures/blocks/drain1Way.png");
         
         this.render();
         
         GL11.glPopMatrix();
         
     }
-  
+
 }

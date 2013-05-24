@@ -32,15 +32,15 @@ public class ItemDrainRender implements IItemRenderer{
 
         switch(type){
             case ENTITY:{
-                renderDrain(0f, 0f, 0f, 1.0f);
+                renderDrain(0f, 0f, 0f, 0.20f);
                 return;
             }
             case EQUIPPED:{
-                renderDrain(0f, 1f, 1f, 1.0f);
+                renderDrain(0f, 0f, 0.5f, 0.20f);
                 return;
             }
             case INVENTORY:{
-                renderDrain(0f, -0.5f, 0f, 1.0f);
+                renderDrain(0f, -0.5f, 0f, 0.20f);
                 return;
             }
             case FIRST_PERSON_MAP:
@@ -59,7 +59,7 @@ public class ItemDrainRender implements IItemRenderer{
         GL11.glScalef(scale, scale, scale);
         GL11.glRotatef(180f, 0f, 1f, 0f);
         
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/MM/textures/blocks/drainUVmap.Brass.png");
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/MM/textures/blocks/drain2WayStraight.png");
         
         drainModel.render();
         

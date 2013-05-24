@@ -15,7 +15,7 @@ public class DrainX extends ModelBase {
     
     public DrainX() {
         
-        modelDrain = AdvancedModelLoader.loadModel("/mods/MM/models/drainX.obj");
+        modelDrain = AdvancedModelLoader.loadModel("/mods/MM/models/drain4Way.obj");
     }
     
     public void render() {
@@ -28,11 +28,11 @@ public class DrainX extends ModelBase {
         
         GL11.glPushMatrix();
         
-        GL11.glTranslatef((float)x + 0.5f, (float)y + 0.4f, (float)z + 0.5f);
+        GL11.glTranslatef((float)x + 0.5f, (float)y + 0.0f, (float)z + 0.5f);
         
-        GL11.glScalef(1.0f, 1.0f, 1.0f);
+        GL11.glScalef(0.20f, 0.20f, 0.20f);
         
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/MM/textures/blocks/drainXUVmap.png");
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/MM/textures/blocks/drain4Way.png");
         
         this.render();
         

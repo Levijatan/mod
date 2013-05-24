@@ -1,21 +1,21 @@
 package mymod.renders.model;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.FMLClientHandler;
-
 import mymod.block.tileEntity.transport.liquid.DrainTileEntity;
 import net.minecraft.client.model.ModelBase;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-public class DrainStraight extends ModelBase {
+import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.FMLClientHandler;
+
+public class DrainBase extends ModelBase {
     
     private IModelCustom modelDrain;
     
-    public DrainStraight() {
+    public DrainBase() {
         
-        modelDrain = AdvancedModelLoader.loadModel("/mods/MM/models/drain2WayStraight.obj");
+        modelDrain = AdvancedModelLoader.loadModel("/mods/MM/models/drainBase.obj");
     }
     
     public void render() {
@@ -23,7 +23,7 @@ public class DrainStraight extends ModelBase {
         modelDrain.renderAll();
     }
     
-    public void render(DrainTileEntity drain, double x, double y, double z, Boolean EastWest) {
+    public void render(DrainTileEntity drain, double x, double y, double z) {
         
         GL11.glPushMatrix();
         
@@ -31,11 +31,7 @@ public class DrainStraight extends ModelBase {
         
         GL11.glScalef(0.20f, 0.20f, 0.20f);
         
-        if (EastWest) {
-            GL11.glRotatef(90F, 0F, 1.0F, 0.0F);
-        }
-        
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/MM/textures/blocks/drain2WayStraight.png");
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/MM/textures/blocks/drainBase.png");
         
         this.render();
         

@@ -12,21 +12,41 @@ import mymod.block.tileEntity.MyTileEntity;
 
 public class DrainTileEntity extends MyTileEntity implements ITankContainer {
 
-    public int directionDrain;
+    public int render;
+    
+
+    public DrainTileEntity(){
+        render = 0;
+    }
+    
+    public DrainTileEntity(int render){
+        this.render = render;
+    }
     
     @Override
-    public void writeToNBT(NBTTagCompound par1)
-    {
-       super.writeToNBT(par1);
+    public void updateEntity() {
+    }
+    
+    public int getRender() {
+        return render;
+    }
 
-       par1.setInteger("directionDrain", directionDrain);
+    public void setRender(int render) {
+        this.render = render;
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound par1)
+    public void writeToNBT(NBTTagCompound nbt)
     {
-       super.readFromNBT(par1);
-       directionDrain = par1.getInteger("directionDrain");
+       super.writeToNBT(nbt);
+       nbt.setInteger("render", render);
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound nbt)
+    {
+       super.readFromNBT(nbt);
+       render = nbt.getInteger("render");
     }
     
     @Override
@@ -76,6 +96,5 @@ public class DrainTileEntity extends MyTileEntity implements ITankContainer {
         // TODO Auto-generated method stub
         return null;
     }
-    
-   
+
 }
